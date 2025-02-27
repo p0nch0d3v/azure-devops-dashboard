@@ -1,23 +1,25 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-#install node
+# Install node
 RUN apt update -yq && apt upgrade -yq
 RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
 RUN apt install -yq nodejs
 
 # Copy everything
 COPY . ./
+
 # Restore as distinct layers
 RUN dotnet restore
+
 # Build
 RUN dotnet build
+
 # Build and publish a release
 RUN dotnet publish -o out
-RUN ls -la /app/out
-RUN ls -la /app/out/wwwroot
-RUN ls -la /app/out/wwwroot/azure-dashboard
-RUN ls -la /app/out/wwwroot/azure-dashboard/browser
+
+# Copy the build to corresponding folder
+RUN cp -r /app/out/wwwroot/azure-dashboard/browser/*.* /app/out/wwwroot/
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
