@@ -12,10 +12,10 @@ export class PatComponent {
   protected patValue:string = "";
 
   ngOnInit() {
-    this.patValue = sessionStorage.getItem('pat') || '';
+    this.patValue = sessionStorage.getItem('PAT') || '';
   }
 
   onSetPat() {
-    sessionStorage.setItem('pat', this.patValue);
+    sessionStorage.setItem('PAT', this.patValue);
   }
 }

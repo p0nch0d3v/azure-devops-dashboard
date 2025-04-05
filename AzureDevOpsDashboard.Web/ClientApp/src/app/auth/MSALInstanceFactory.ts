@@ -1,8 +1,9 @@
 import { BrowserCacheLocation, Configuration, IPublicClientApplication, LogLevel, PublicClientApplication } from "@azure/msal-browser";
+import { environment } from "../../environments/environment";
 
 export const MsalConfig: Configuration = {
     auth: {
-        clientId: '', // Replace with your app's client ID
+        clientId: environment?.clientId || '', // Replace with your app's client ID
         authority: 'https://login.microsoftonline.com/common', // Replace with your tenant subdomain
         redirectUri: '/',
         postLogoutRedirectUri: '/',

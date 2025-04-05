@@ -40,6 +40,6 @@ export class HomeComponent implements OnInit {
   }
 
   async onIterationClick() {
-    this.workItems = await this.azureService.getInterationInfo(this.account?.username || '', sessionStorage.getItem('pat') || '');
+    this.workItems = await this.azureService.getInterationInfo(this.account?.username || '', sessionStorage.getItem('PAT') || '');
   }
 }
