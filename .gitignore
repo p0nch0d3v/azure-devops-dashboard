@@ -283,3 +283,4 @@ obj/
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,dotnetcore
 
 .env.local
+.env.docker
