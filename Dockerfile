@@ -31,8 +31,6 @@ RUN dotnet build
 # Build and publish a release
 RUN dotnet publish -o out
 
-# RUN ls -la /app/out/wwwroot/azure-dashboard
-
 # Copy the build to corresponding folder
 RUN cp -r /app/out/wwwroot/azure-dashboard/*.* /app/out/wwwroot/
 
