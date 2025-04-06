@@ -1,9 +1,15 @@
 # Azure DevOps Dashboard
 
-This solution extends Azure DevOps capabilities to offer advanced tools for end-to-end project management, including story tracking, and board organization.
+This solution enhance Azure DevOps with advanced project management tools, including cross-project Kanban boards and streamlined story tracking.
 
-## Key feature:
-- Provides cross-project Kanban boards, allowing users to visualize work across multiple status in a single view.
+## Key features:
+
+### Unified Kanban Boards
+> Visualize work items across multiple projects and statuses in a single view.
+
+### End-to-End Workflow Management
+> Track stories, tasks, and dependencies seamlessly within your organization.
+
 
 ## How to run it locally
 - Prerequisites
@@ -11,15 +17,35 @@ This solution extends Azure DevOps capabilities to offer advanced tools for end-
     - 2. `Node v22 (LTS)` -> [Get it](https://nodejs.org/download/release/latest-v22.x/).
     - 3. `Docker` **OPTIONAL** [Get it](https://docs.docker.com/get-started/get-docker/).
 
-- Due to Azure DevOps work with Micorosft login,it needs to be configured
-    - 1. Locate the file `AzureDevOpsDashboard.Web/ClientApp/.env` and clone it into `.env.local`.
-    - 2. Change the values of `NG_APP_PUBLIC_ORGANIZATION` and `NG_APP_PUBLIC_CLIENT_ID` keys correspondingly in the cloned file `.env.local`.
-    - 3. On the folder `AzureDevOpsDashboard.Web/ClientApp` execute the node packages installation command, e.g. `npm install --legacy-peer-deps`.
-    - 4. Run the `.NET` project, on the folder `AzureDevOpsDashboard.Web`,e.g. `dotnet run`.
+- Due to Azure DevOps work with Microsoft login,it needs to be configured
+    - 1. Navigate to the folder `AzureDevOpsDashboard.Web/ClientApp` and copy `.env` to `.env.local`.
+    - 2. Update the keys in `.env.local`:
+        ```
+        NG_APP_PUBLIC_ORGANIZATION=
+        NG_APP_PUBLIC_CLIENT_ID=
+        ```
+    - 3. Navigate to the folder `AzureDevOpsDashboard.Web/ClientApp`, install the dependencies with the following command:
+        ```
+        npm install --legacy-peer-deps
+        ```
+    - 4. Run the `.NET` project, navigate to the folder `AzureDevOpsDashboard.Web`, and execute the following command:
+        ```
+        dotnet run
+        ```
 
 - Alternatively you can run it using `Docker`
-    - 1. Locate the file `.env.docker.template` and clone it into `.env.docker`.
-    - 2. Change the values of `NG_APP_PUBLIC_ORGANIZATION` and `NG_APP_PUBLIC_CLIENT_ID` keys correspondingly in the cloned file `.env.docker`.
+    - 1. Navigate to the root folder `/` and copy `.env.docker.template` to `.env.docker`.
+    - 2. Update the keys in `.env.docker`:
+        ```
+        NG_APP_PUBLIC_ORGANIZATION=
+        NG_APP_PUBLIC_CLIENT_ID=
+        ```
     - 3. Execute the command:
-        - a. `test_docker_local.sh`, if you are running bash/zsh or similar *nix shell.
-        - b. `test_docker_local.ps1`, if you are running `Powershell` on `Windows`.
+        - a. Linux/MacOs
+        ```bash
+        ./test_docker_local.sh
+        ```
+        - b. Windows
+        ```powershell
+        .\test_docker_local.ps1
+        ```
